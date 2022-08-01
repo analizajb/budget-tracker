@@ -39,7 +39,7 @@ function saveRecord(record) {
   // add record to your store with add method
   balanceObjectStore.add(record);
 }
-
+// Upload all saved balances from the database
 function uploadBalance() {
   // open a transaction on your pending db
   const transaction = db.transaction(["new_balance"], "readwrite");
@@ -53,7 +53,7 @@ function uploadBalance() {
   getAll.onsuccess = function () {
     // if there was data in indexedDb's store, let's send it to the api server
     if (getAll.result.length > 0) {
-      fetch("/api/balance", {
+      fetch("/api/transaction/bulk", {
         method: "POST",
         body: JSON.stringify(getAll.result),
         headers: {
@@ -67,10 +67,14 @@ function uploadBalance() {
             throw new Error(serverResponse);
           }
 
+          // open one more transaction
           const transaction = db.transaction(["new_balance"], "readwrite");
+           // access the new_balance object store
           const balanceObjectStore = transaction.objectStore("new_balance");
           // clear all items in your store
           balanceObjectStore.clear();
+
+          // Add a message to user?
         })
         .catch((err) => {
           // set reference to redirect back here
