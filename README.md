@@ -9,6 +9,7 @@ A web application that allows users to keep track of their expenses including wi
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Future Development](#future-development)
 - [Questions](#questions)
 
 ## Installation
@@ -19,7 +20,13 @@ A web application that allows users to keep track of their expenses including wi
 
 ## Usage
 
-Users can title the transaction, set a certain amount of money, and press either 'Add Funds' to increase the total or 'Substract Funds' to decrease the total. Users are able to add or subtract funds online and offline.
+Users can keep track of their budget with functionality including:
+- Labeled buttons to add or subtract funds.
+- A graph that shows a visual of their budget pattern.
+
+## Future Development
+
+- Deploying this application to Heroku 
 
 ## Questions
 
